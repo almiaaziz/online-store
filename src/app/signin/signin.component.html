@@ -1,0 +1,22 @@
+<div class="container d-flex flex-column">
+  <button
+    type="button"
+    class="btn btn-success my-1"
+    style="width: 100px"
+    (click)="onSignIn()"
+    [disabled]="isAuth"
+    
+  >
+    Sign In
+  </button>
+  <button
+    type="button"
+    class="btn btn-danger my-1"
+    style="width: 100px"
+    (click)="onSignOut()"
+    [disabled]="!isAuth"
+    
+  >
+    Sign Out
+  </button>
+</div>

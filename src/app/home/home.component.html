@@ -1,0 +1,20 @@
+<div class="container ms-1">
+  <h1>{{ welcome }}</h1>
+  <p>{{ description }}</p>
+
+  <div class="mt-5">
+    <h3>Promotions</h3>
+
+    <div class="container-fluide d-flex justify-content-between">
+      <div *ngFor="let promotion of promotions">
+        <div class="card w-70">
+          <div class="card-body">
+            <p class="card-text">
+              {{ promotion }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
