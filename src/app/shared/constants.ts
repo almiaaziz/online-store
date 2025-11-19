@@ -1,29 +1,29 @@
-import Product from "../models/product";
+import Product from '../models/product';
 
-export const PRODUCTS=[
-     new Product(
-          1,
-          'SS-S9',
-          'Samsung Galaxy S9',
-          500.0,
-          50,
-          '../../assets/images/samsung-s9.png'
-        ),
-        new Product(2, 'NK-5P', 'Nokia 5.1 Plus', 60.0, 60),
-        new Product(
-          3,
-          'IP-7',
-          'iPhone 7',
-          600.0,
-          30,
-          '../../assets/images/iphone-7.png'
-        ),
-        new Product(
-          4,
-          'XI-14',
-          'Redmi 14',
-          1200.0,
-          50,
-          '../../assets/images/xiaomi-14.png'
-        ),
-]
+export const PRODUCTS:Product[] = [
+  {
+    id: 1,
+    code: 'SS-S9',
+    name: 'Samsung Galaxy S9',
+    price: 500.0,
+    quantity: 50,
+    image: '../../assets/images/samsung-s9.png',
+  },
+  { id: 2, code: 'NK-5P', name: 'Nokia 5.1 Plus', price: 60.0, quantity: 60 ,image:'../../assets/images/no-image.png' },
+  {
+    id: 3,
+    code: 'IP-7',
+    name: 'iPhone 7',
+    price: 600.0,
+    quantity: 30,
+    image: '../../assets/images/iphone-7.png',
+  },
+  {
+    id: 4,
+    code: 'XI-14',
+    name: 'Redmi 14',
+    price: 1200.0,
+    quantity: 50,
+    image: '../../assets/images/xiaomi-14.png',
+  },
+];

@@ -8,6 +8,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './signin/signin.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,10 +18,12 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     ProductDetailsComponent,
     HomeComponent,
     SigninComponent,
-    NavbarComponent
+    NavbarComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [

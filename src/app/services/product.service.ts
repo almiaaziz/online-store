@@ -17,4 +17,7 @@ export class ProductService {
     console.log(this.products)
 
   }
+  addProduct(product:Product){
+    this.products.push({...product,id:this.products.length+1});
+  }
 }
