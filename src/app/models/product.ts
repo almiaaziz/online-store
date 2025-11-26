@@ -4,14 +4,14 @@ export default class Product {
   name: string;
   price: number;
   quantity: number;
-  image: string;
+  image: string|undefined;
 
   constructor(
   code: string,
   name: string,
   price: number,
   quantity: number,
-  image:string = '../../assets/images/no-image.png' 
+  image?:string
   ){
     this.code=code;
     this.name=name;

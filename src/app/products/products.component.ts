@@ -24,6 +24,6 @@ export class ProductsComponent implements OnInit,DoCheck{
 
   onAddProduct(){
     console.log("Add Product Clicked");
-    this.router.navigateByUrl('add-product')
+    this.router.navigateByUrl('products/edit');
   }
 }

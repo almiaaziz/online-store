@@ -4,19 +4,19 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { SigninComponent } from './signin/signin.component';
 import { authGuard } from './guards/auth.guard';
-import { AddProductComponent } from './add-product/add-product.component';
+import { EditProductComponent } from './editProduct/editProduct.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   {
-    path: 'product-management',
+    path: 'products',
     component: ProductsComponent,
     canActivate: [authGuard],
   },
   { path: 'signin', component: SigninComponent },
   {
-    path: 'add-product',
-    component: AddProductComponent,
+    path: 'products/edit',
+    component: EditProductComponent,
     canActivate: [authGuard],
   },
 ];
