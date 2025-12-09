@@ -10,6 +10,8 @@ import { SigninComponent } from './signin/signin.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { EditProductComponent } from './editProduct/editProduct.component';
+import { BASE_URL } from './shared/constants';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,10 +26,12 @@ import { EditProductComponent } from './editProduct/editProduct.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    {provide: 'BASE_URL', useValue: BASE_URL}
   ],
   bootstrap: [AppComponent]
 })

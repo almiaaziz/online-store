@@ -11,7 +11,7 @@ export default class Product {
   name: string,
   price: number,
   quantity: number,
-  image?:string
+  image:string='/images/no-image.png'
   ){
     this.code=code;
     this.name=name;

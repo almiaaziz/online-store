@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, DoCheck, OnChanges, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import Product from '../models/product';
 import { Router } from '@angular/router';
@@ -6,24 +6,32 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrl: './products.component.css'
+  styleUrl: './products.component.css',
 })
-export class ProductsComponent implements OnInit,DoCheck{
-  productList:Product[]=[]
-  constructor(
-    private productService:ProductService,
-    private router:Router
-  ){}
+export class ProductsComponent implements OnInit {
+  productList: Product[] = [];
+  isLoading!: boolean;
+  constructor(private productService: ProductService, private router: Router) {}
+  fetchProducts() {
+    this.isLoading=true;
+    this.productService.getProducts().subscribe({
+      next: (res) => {
+        this.productList = res;
+       this.isLoading = false;
+      },
+      error: (err) => {
+        console.log('Error Fetching Products:' + err);
+        this.isLoading = false;
+      }
+    })
+  }
   ngOnInit(): void {
-    this.productList=this.productService.getProducts();
+    this.fetchProducts();
   }
 
-  ngDoCheck(): void {
-    this.productList=this.productService.getProducts();
-  }
 
-  onAddProduct(){
-    console.log("Add Product Clicked");
+  onAddProduct() {
+    console.log('Add Product Clicked');
     this.router.navigateByUrl('products/edit');
   }
 }

@@ -19,6 +19,11 @@ const routes: Routes = [
     component: EditProductComponent,
     canActivate: [authGuard],
   },
+  {
+    path: 'products/edit/:id',
+    component: EditProductComponent,
+    canActivate: [authGuard],
+  },
 ];
 
 @NgModule({

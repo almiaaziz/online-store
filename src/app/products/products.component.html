@@ -1,8 +1,22 @@
 <button (click)="onAddProduct()" class="btn btn-success mb-3 p-2">
   + Add Product
 </button>
-<div class="container d-flex justify-content-evenly flex-wrap">
-  <div *ngFor="let product of productList">
-    <app-product-details [product]="product"></app-product-details>
+
+<div *ngIf="!isLoading; else spinner">
+  <div class="container d-flex justify-content-evenly flex-wrap">
+    <div *ngFor="let product of productList">
+      <app-product-details
+        [product]="product"
+        (productIsDeleted)="fetchProducts()"
+      ></app-product-details>
+    </div>
   </div>
 </div>
+
+<ng-template #spinner>
+  <div class="d-flex justify-content-evenly" style="width: 100%">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-template>

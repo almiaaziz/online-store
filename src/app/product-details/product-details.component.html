@@ -1,13 +1,29 @@
-
-
-<div class="card p-3 my-3" style="width: 18rem ;height: 500px;" >
-  <img [src]="product.image" class="card-img-top" alt="..." width="40px" height="250px"/>
+<div class="card p-3 my-3" style="width: 18rem; height: 500px">
+  <img
+    src="{{ BASE_URL + product.image }}"
+    class="card-img-top"
+    alt="..."
+    width="40px"
+    height="250px"
+  />
   <div class="card-body">
     <h5 class="card-title">{{ product.name }}</h5>
     <p class="card-text">Price: {{ product.price | currency }}</p>
     <p class="card-text">Quantity: {{ product.quantity }}</p>
-    <p class="card-text">Code: {{ product.code}}</p>
+    <p class="card-text">Code: {{ product.code }}</p>
 
-    <button class="btn btn-danger mx-auto" (click)="onDeleteProduct(product.id)">Delete</button>
+    <div class="d-flex justify-content-evenly" style="width: 100%">
+      <button class="btn btn-danger d-flex" (click)="onDeleteProduct(product.id)" [disabled]="isDeleting">
+        Delete
+        <div *ngIf="isDeleting">
+          <span class="spinner-border" role="status" style="height: 20px;width: 20px;">
+            <span class="visually-hidden">Loading...</span>
+          </span>
+        </div>
+      </button>
+      <button class="btn btn-primary" (click)="onUpdateProduct(product.id)">
+        Update
+      </button>
+    </div>
   </div>
 </div>
